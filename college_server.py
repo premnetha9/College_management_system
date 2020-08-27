@@ -1,9 +1,12 @@
 import mysql.connector as mysql
 
+#Connecting to database
 db = mysql.connect(host="localhost",user="root",password="",database="college")
 
+#Creating handler to excute quarys
 command_handler = db.cursor(buffered=True)
 
+# Admin login
 def auth_admin():
     username = input(str("Username : "))
     password = input(str("Password : "))
@@ -15,6 +18,7 @@ def auth_admin():
     else:
         print("Wrong cradentials")
 
+#Admin Work
 def admin_accs():
     while 1 :
         print("Admin Menu")
@@ -60,7 +64,8 @@ def admin_accs():
             break
         else:
             print("Option not correct")
-        
+
+#Student Login
 def auth_student():
     username = input(str("Username : "))
     password = input(str("Password : "))
@@ -72,6 +77,7 @@ def auth_student():
         print("Welcome ",username)
         stu_accs(username)
 
+#Student Work pannel        
 def stu_accs(uname):
     while 1:
         print("1. View Register")
@@ -99,6 +105,7 @@ def stu_accs(uname):
         elif user_option == "3":
             break
 
+#Teacher Login            
 def auth_teacher():
     username = input(str("Username : "))
     password = input(str("Password : "))
@@ -110,6 +117,7 @@ def auth_teacher():
         print("Welcome ",username)
         tch_accs()
 
+# Teacher work pannel        
 def tch_accs():
     while 1:
         print("1. Mark Register")
@@ -144,7 +152,7 @@ def tch_accs():
         else:
             print("Invalid options")
     
-
+#Main Function
 def main():
     while 1:
         print("Welcome to the college system")
